@@ -138,7 +138,6 @@ nav {
 .stat-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; text-shadow: 0 0 14px rgba(110,168,254,0.12); }
 .stat-num .accent { color: var(--accent); }
 .stat-desc { font-size: 11px; color: var(--text-secondary); letter-spacing: .04em; text-transform: uppercase; }
-/* looping stat icons */
 .sparkline { animation: sfloat 4s ease-in-out infinite; }
 @keyframes sfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
 .spinring { animation: spin 7s linear infinite; transform-origin: center; }
@@ -210,22 +209,18 @@ section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
 .step-content { flex: 1; }
 .step-content h3 { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
 .step-content p { font-size: 14px; color: var(--text-secondary); line-height: 1.75; font-weight: 300; }
-/* step icon widgets */
 .step-widget { flex-shrink: 0; width: 80px; display: flex; align-items: center; justify-content: center; opacity: 0.75; }
-/* step 1: scanning radar pulse */
 .radar-ring { animation: radarPulse 2s ease-out infinite; transform-origin: center; }
 .radar-ring:nth-child(2) { animation-delay: 0.6s; }
 .radar-ring:nth-child(3) { animation-delay: 1.2s; }
 @keyframes radarPulse { 0%{r:4;opacity:0.8} 100%{r:28;opacity:0} }
 .radar-dot { animation: radarBlink 2s ease-in-out infinite; }
 @keyframes radarBlink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-/* step 2: encode nodes */
 .encode-bit { animation: encodeFly 2.2s ease-in-out infinite; }
 .encode-bit:nth-child(2){animation-delay:.3s}
 .encode-bit:nth-child(3){animation-delay:.6s}
 .encode-bit:nth-child(4){animation-delay:.9s}
 @keyframes encodeFly { 0%{transform:translateY(0);opacity:0} 30%{opacity:1} 70%{opacity:1} 100%{transform:translateY(-18px);opacity:0} }
-/* step 3: typing cursor */
 .type-cursor { animation: typeBlink 1s step-end infinite; }
 @keyframes typeBlink { 0%,100%{opacity:1} 50%{opacity:0} }
 .type-char { animation: typeAppear 2.4s steps(1) infinite; }
@@ -235,7 +230,6 @@ section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
 .type-char:nth-child(4){animation-delay:.75s}
 .type-char:nth-child(5){animation-delay:1s}
 @keyframes typeAppear { 0%,100%{opacity:0} 40%,90%{opacity:1} }
-/* step 4: dashboard bars pulse */
 .dash-bar { animation: dashGrow 2.5s ease-in-out infinite alternate; transform-origin: bottom; }
 .dash-bar:nth-child(2){animation-delay:.3s}
 .dash-bar:nth-child(3){animation-delay:.6s}
@@ -256,26 +250,25 @@ section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
 /* TRY IT */
 .try-section { border-top: 0.5px solid var(--border); padding: 6rem 3rem; text-align: center; background: var(--surface); position: relative; overflow: hidden; }
 #try-canvas { position: absolute; top: 0; left: 0; pointer-events: none; z-index: 0; opacity: 0.4; }
-.try-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+.try-inner { max-width: 1060px; margin: 0 auto; position: relative; z-index: 1; }
 .try-section .section-tag { display: block; margin-bottom: 1rem; }
 .try-section .section-sub { margin: 0 auto 3rem; max-width: 480px; text-align: center; }
 .try-box {
-  width: 100%; min-height: 440px; background: rgba(4,4,10,0.7);
+  width: 100%; background: rgba(4,4,10,0.7);
   border: 0.5px solid rgba(110,168,254,0.22); border-radius: 18px;
-  display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
   box-shadow: 0 0 60px rgba(110,168,254,0.06), inset 0 0 40px rgba(110,168,254,0.03);
 }
-.try-corner { position: absolute; width: 22px; height: 22px; border-color: rgba(110,168,254,0.45); border-style: solid; animation: cpulse 3s ease-in-out infinite; }
+.try-corner { position: absolute; width: 22px; height: 22px; border-color: rgba(110,168,254,0.45); border-style: solid; animation: cpulse 3s ease-in-out infinite; z-index: 2; }
 @keyframes cpulse { 0%,100%{opacity:.4} 50%{opacity:1;filter:drop-shadow(0 0 4px rgba(110,168,254,.6))} }
 .try-corner.tl{top:14px;left:14px;border-width:1px 0 0 1px;border-radius:4px 0 0 0;}
 .try-corner.tr{top:14px;right:14px;border-width:1px 1px 0 0;border-radius:0 4px 0 0;}
 .try-corner.bl{bottom:14px;left:14px;border-width:0 0 1px 1px;border-radius:0 0 0 4px;}
 .try-corner.br{bottom:14px;right:14px;border-width:0 1px 1px 0;border-radius:0 0 4px 0;}
-.try-placeholder { display: flex; flex-direction: column; align-items: center; gap: 14px; color: var(--text-muted); }
-.try-placeholder .ti { animation: tfloat 3s ease-in-out infinite; }
-@keyframes tfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-.try-placeholder span { font-size: 13px; letter-spacing: .06em; }
+.dashboard-iframe {
+  width: 100%; height: 700px; border: none; display: block;
+  border-radius: 18px;
+}
 
 /* CTA */
 .cta-section { border-top: 0.5px solid var(--border); padding: 7rem 3rem; text-align: center; position: relative; overflow: hidden; }
@@ -321,6 +314,7 @@ footer { border-top: 0.5px solid var(--border); background: var(--surface); padd
   section{padding:4rem 1.5rem;}
   .stats-bar{grid-template-columns:1fr 1fr;} .stat-item{border-bottom:.5px solid var(--border);}
   .try-section{padding:4rem 1.5rem;}
+  .dashboard-iframe{height:500px;}
   footer{flex-direction:column;gap:.5rem;text-align:center;}
 }
 </style>
@@ -581,19 +575,16 @@ footer { border-top: 0.5px solid var(--border); background: var(--surface); padd
   <div class="try-inner">
     <span class="section-tag glow-tag reveal">Live demo</span>
     <h2 class="section-title glow-title reveal">Try it <span class="glow-accent">for yourself</span></h2>
-    <p class="section-sub reveal">See Convale in action. Paste in a comment and watch the AI classify and respond in real time.</p>
+    <p class="section-sub reveal">See the Convale coach dashboard in action — explore leads, conversations, and your booked calls.</p>
     <div class="try-box reveal">
       <div class="try-corner tl"></div><div class="try-corner tr"></div>
       <div class="try-corner bl"></div><div class="try-corner br"></div>
-      <div class="try-placeholder">
-        <div class="ti">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-            <rect x="2" y="2" width="40" height="40" rx="9" stroke="#6ea8fe" stroke-width="1" stroke-dasharray="6 4" opacity=".45"/>
-            <circle cx="22" cy="22" r="7" stroke="#6ea8fe" stroke-width="1" opacity=".35"/>
-          </svg>
-        </div>
-        <span>Your embed goes here</span>
-      </div>
+      <iframe
+        class="dashboard-iframe"
+        src="convale-dashboard-demo.html"
+        title="Convale Coach Dashboard Demo"
+        scrolling="no">
+      </iframe>
     </div>
   </div>
 </div>
